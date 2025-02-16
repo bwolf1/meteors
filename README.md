@@ -5,7 +5,7 @@
 - Go
 - [Ebitengine](https://github.com/hajimehoshi/ebiten)
 
-[Play the upstream build online!](https://threedotslabs.github.io/meteors/)
+[Play](https://threedotslabs.github.io/meteors/) the upstream build in your browser
 
 See the original creator's post: [Making Games in Go for Absolute Beginners](https://threedots.tech/post/making-games-in-go/)
 
