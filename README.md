@@ -1,6 +1,9 @@
 # meteors
 
-An example 2D game made with Go and Ebitengine.
+2D game similar to Atari's Astroids
+
+- Go
+- [Ebitengine](https://github.com/hajimehoshi/ebiten)
 
 [Play the upstream build online!](https://threedotslabs.github.io/meteors/)
 
