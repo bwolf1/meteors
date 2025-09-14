@@ -4,6 +4,7 @@
 
 - Go
 - [Ebitengine](https://github.com/hajimehoshi/ebiten)
+- Assets by [Kenney](https://kenney.nl/)
 
 ## Play in Browser
 
