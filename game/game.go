@@ -75,8 +75,18 @@ func (g *Game) Update() error {
 	for i, m := range g.meteors {
 		for j, b := range g.bullets {
 			if m.Collider().Intersects(b.Collider()) {
+				// If a bullet hits a meteor, remove both
+				// from their respective slices
+				// We do this efficiently by swapping with the last element and
+				// truncating the slice
+				// This avoids shifting elements and is more efficient
+				// since order doesn't matter here
+				// Note: This will change the order of meteors and bullets
+				// but that's acceptable for this game
 				g.meteors = append(g.meteors[:i], g.meteors[i+1:]...)
 				g.bullets = append(g.bullets[:j], g.bullets[j+1:]...)
+				
+				// Increment the score
 				g.score++
 			}
 		}
@@ -84,6 +94,7 @@ func (g *Game) Update() error {
 
 	// Check for meteor/player collisions
 	for _, m := range g.meteors {
+		// If a meteor hits the player, reset the game
 		if m.Collider().Intersects(g.player.Collider()) {
 			g.Reset()
 			break

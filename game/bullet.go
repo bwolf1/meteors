@@ -18,9 +18,11 @@ type Bullet struct {
 	sprite   *ebiten.Image
 }
 
+// NewBullet creates a new bullet at the given position and rotation.
 func NewBullet(pos Vector, rotation float64) *Bullet {
 	sprite := assets.LaserSprite
 
+	// Offset the position by half the sprite size to center it
 	bounds := sprite.Bounds()
 	halfWidth := float64(bounds.Dx()) / 2
 	halfHeight := float64(bounds.Dy()) / 2
@@ -40,15 +42,18 @@ func NewBullet(pos Vector, rotation float64) *Bullet {
 func (b *Bullet) Update() {
 	speed := bulletSpeedPerSecond / float64(ebiten.TPS())
 
+	// Move in the direction of the rotation
 	b.position.X += math.Sin(b.rotation) * speed
 	b.position.Y += math.Cos(b.rotation) * -speed
 }
 
 func (b *Bullet) Draw(screen *ebiten.Image) {
+	// Center the rotation on the sprite
 	bounds := b.sprite.Bounds()
 	halfWidth := float64(bounds.Dx()) / 2
 	halfHeight := float64(bounds.Dy()) / 2
 
+	// Draw the sprite with rotation
 	op := &ebiten.DrawImageOptions{}
 	op.GeoM.Translate(-halfWidth, -halfHeight)
 	op.GeoM.Rotate(b.rotation)
