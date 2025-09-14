@@ -1,9 +1,8 @@
 name: Deploy Web
 on:
-  workflow_dispatch:
-    inputs:
-      branch_name:
-        default: 'master'
+  push:
+    branches:
+      - master
 permissions:
   contents: read
   pages: write
