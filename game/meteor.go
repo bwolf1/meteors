@@ -6,7 +6,7 @@ import (
 
 	"github.com/hajimehoshi/ebiten/v2"
 
-	"github.com/ThreeDotsLabs/meteors/assets"
+	"github.com/bwolf1/meteors/assets"
 )
 
 const (
@@ -68,13 +68,13 @@ func (m *Meteor) Update() {
 
 func (m *Meteor) Draw(screen *ebiten.Image) {
 	bounds := m.sprite.Bounds()
-	halfW := float64(bounds.Dx()) / 2
-	halfH := float64(bounds.Dy()) / 2
+	halfWidth := float64(bounds.Dx()) / 2
+	halfHeight := float64(bounds.Dy()) / 2
 
 	op := &ebiten.DrawImageOptions{}
-	op.GeoM.Translate(-halfW, -halfH)
+	op.GeoM.Translate(-halfWidth, -halfHeight)
 	op.GeoM.Rotate(m.rotation)
-	op.GeoM.Translate(halfW, halfH)
+	op.GeoM.Translate(halfWidth, halfHeight)
 
 	op.GeoM.Translate(m.position.X, m.position.Y)
 

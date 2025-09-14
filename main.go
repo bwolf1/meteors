@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/hajimehoshi/ebiten/v2"
 
-	"github.com/ThreeDotsLabs/meteors/game"
+	"github.com/bwolf1/meteors/game"
 )
 
 func main() {

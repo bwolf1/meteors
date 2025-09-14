@@ -5,7 +5,7 @@ import (
 
 	"github.com/hajimehoshi/ebiten/v2"
 
-	"github.com/ThreeDotsLabs/meteors/assets"
+	"github.com/bwolf1/meteors/assets"
 )
 
 const (
@@ -22,11 +22,11 @@ func NewBullet(pos Vector, rotation float64) *Bullet {
 	sprite := assets.LaserSprite
 
 	bounds := sprite.Bounds()
-	halfW := float64(bounds.Dx()) / 2
-	halfH := float64(bounds.Dy()) / 2
+	halfWidth := float64(bounds.Dx()) / 2
+	halfHeight := float64(bounds.Dy()) / 2
 
-	pos.X -= halfW
-	pos.Y -= halfH
+	pos.X -= halfWidth
+	pos.Y -= halfHeight
 
 	b := &Bullet{
 		position: pos,
@@ -46,13 +46,13 @@ func (b *Bullet) Update() {
 
 func (b *Bullet) Draw(screen *ebiten.Image) {
 	bounds := b.sprite.Bounds()
-	halfW := float64(bounds.Dx()) / 2
-	halfH := float64(bounds.Dy()) / 2
+	halfWidth := float64(bounds.Dx()) / 2
+	halfHeight := float64(bounds.Dy()) / 2
 
 	op := &ebiten.DrawImageOptions{}
-	op.GeoM.Translate(-halfW, -halfH)
+	op.GeoM.Translate(-halfWidth, -halfHeight)
 	op.GeoM.Rotate(b.rotation)
-	op.GeoM.Translate(halfW, halfH)
+	op.GeoM.Translate(halfWidth, halfHeight)
 
 	op.GeoM.Translate(b.position.X, b.position.Y)
 

@@ -1,4 +1,4 @@
-module github.com/ThreeDotsLabs/meteors
+module github.com/bwolf1/meteors
 
 go 1.21
 

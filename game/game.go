@@ -8,12 +8,12 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/text"
 
-	"github.com/ThreeDotsLabs/meteors/assets"
+	"github.com/bwolf1/meteors/assets"
 )
 
 const (
-	screenWidth  = 800
-	screenHeight = 600
+	screenWidth  = 1024
+	screenHeight = 768
 
 	meteorSpawnTime = 1 * time.Second
 
