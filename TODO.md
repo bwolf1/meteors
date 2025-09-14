@@ -18,7 +18,7 @@
 ## Development Tasks
 
 - [x] Improve Code Comments
-- [ ] Increase screen size to 1024x768
+- [x] Increase screen size to 1024x768
 
 ## Documentation
 
