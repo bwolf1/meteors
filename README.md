@@ -7,7 +7,7 @@
 - Assets by [Kenney](https://kenney.nl/)
 
 ## Play in Browser
-
+- [Play](https://bwolf1.github.io/meteors/) **this build** in your browser
 - [Play](https://threedotslabs.github.io/meteors/) the upstream build in your browser
 
 See the original creator's post: [Making Games in Go for Absolute Beginners](https://threedots.tech/post/making-games-in-go/)
