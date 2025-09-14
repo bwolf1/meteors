@@ -3,6 +3,13 @@ on:
   push:
     branches:
       - master
+      - main
+  workflow_dispatch:
+    inputs:
+      go-version:
+        description: 'Go version'
+        required: false
+        default: '^1.21'
 permissions:
   contents: read
   pages: write
