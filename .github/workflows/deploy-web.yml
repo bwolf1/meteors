@@ -34,6 +34,6 @@ jobs:
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: web
+          path: web/**
       - id: deployment
         uses: actions/deploy-pages@v1
