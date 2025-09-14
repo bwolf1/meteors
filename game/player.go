@@ -33,7 +33,7 @@ func NewPlayer(game *Game) *Player {
 	bounds := sprite.Bounds()
 	halfWidth := float64(bounds.Dx()) / 2
 	halfHeight := float64(bounds.Dy()) / 2
-	
+
 	// Center the position of the center of the sprite on the screen
 	pos := Vector{
 		X: screenWidth/2 - halfWidth,
@@ -50,21 +50,22 @@ func NewPlayer(game *Game) *Player {
 }
 
 func (p *Player) Update() {
-	speed := rotationPerSecond / float64(ebiten.TPS())
+	rotationSpeed := rotationPerSecond / float64(ebiten.TPS())
+	movementSpeed := 3.0
 
 	// Rotate left/right
 	if ebiten.IsKeyPressed(ebiten.KeyLeft) {
-		p.rotation -= speed
+		p.rotation -= rotationSpeed
 	}
 	if ebiten.IsKeyPressed(ebiten.KeyRight) {
-		p.rotation += speed
+		p.rotation += rotationSpeed
 	}
 
 	// Move forward
 	if ebiten.IsKeyPressed(ebiten.KeyArrowUp) {
 		// Move in the direction the player is facing
-		p.position.X += math.Sin(p.rotation) * 3
-		p.position.Y += math.Cos(p.rotation) * -3
+		p.position.X += math.Sin(p.rotation) * movementSpeed
+		p.position.Y += math.Cos(p.rotation) * -movementSpeed
 
 		// Limit the player's position to the screen bounds
 		p.position.X = math.Max(0, math.Min(screenWidth-float64(p.sprite.Bounds().Dx()), p.position.X))
