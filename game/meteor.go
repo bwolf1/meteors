@@ -22,33 +22,48 @@ type Meteor struct {
 	sprite        *ebiten.Image
 }
 
+// NewMeteor spawns a meteor at a random position on the edge of a circle that 
+// is centered on the screen with a radius that is half the screen width (so it
+// spawns offscreen)and sets its movement vector to point towards the target.
 func NewMeteor(baseVelocity float64) *Meteor {
+	// Target is the center of the screen
 	target := Vector{
 		X: screenWidth / 2,
 		Y: screenHeight / 2,
 	}
 
+	// Pick a random angle — 2π is 360° — so this returns 0° to 360°
 	angle := rand.Float64() * 2 * math.Pi
+
+	// Radius is half the screen width to ensure it spawns offscreen
 	r := screenWidth / 2.0
 
+	// Offset the position by half the sprite size to center it
+	// on the calculated position
 	pos := Vector{
 		X: target.X + math.Cos(angle)*r,
 		Y: target.Y + math.Sin(angle)*r,
 	}
 
+	// Add some randomness to the velocity
 	velocity := baseVelocity + rand.Float64()*1.5
 
+	// Direction is the target minus the current position
 	direction := Vector{
 		X: target.X - pos.X,
 		Y: target.Y - pos.Y,
 	}
+
+	// Normalize the vector — get just the direction without the length
 	normalizedDirection := direction.Normalize()
 
+	// Multiply the direction by velocity to get the movement vector
 	movement := Vector{
 		X: normalizedDirection.X * velocity,
 		Y: normalizedDirection.Y * velocity,
 	}
 
+	// Randomly select a meteor sprite
 	sprite := assets.MeteorSprites[rand.Intn(len(assets.MeteorSprites))]
 
 	m := &Meteor{
