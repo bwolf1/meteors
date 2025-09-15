@@ -18,12 +18,12 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-go@v6
         with:
-          go-version: '^1.25'
+          go-version: '^1.24'
       - run: go build -o web/game.wasm
         env:
           GOOS: js
           GOARCH: wasm
-      - run: cp $(go env GOROOT)/misc/wasm/wasm_exec.js web/
+      # - run: wget -O ./web/wasm_exec.js https://raw.githubusercontent.com/golang/go/refs/tags/go1.24.5/lib/wasm/wasm_exec.js
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
