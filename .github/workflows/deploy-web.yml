@@ -23,7 +23,7 @@ jobs:
         env:
           GOOS: js
           GOARCH: wasm
-      - run: go run github.com/hajimehoshi/wasmserve@latest ./web
+      - run: wget https://raw.githubusercontent.com/golang/go/refs/tags/go1.24.5/lib/wasm/wasm_exec.js ./web
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
