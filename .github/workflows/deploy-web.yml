@@ -25,9 +25,9 @@ jobs:
           GOARCH: wasm
       - run: cp $(go env GOROOT)/misc/wasm/wasm_exec.js web/
 
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v2
         with:
           path: web/**
       - id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
